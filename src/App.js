@@ -53,6 +53,7 @@ function SearchResults({ record, setRecord, route }) {
         } else {
             route.history.push("/");
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
