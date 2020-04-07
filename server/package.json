@@ -2,12 +2,14 @@
     "name": "server",
     "version": "1.0.0",
     "description": "Backend detainee",
+    "engines": {
+        "node": "8.13.0"
+    },
     "main": "app.js",
     "scripts": {
         "client": "cd ../src && yarn start",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-        "server": "nodemon app.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "server": "nodemon app.js"
     },
     "author": "",
     "license": "ISC",

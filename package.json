@@ -1,7 +1,7 @@
 {
     "name": "detainee",
     "version": "0.1.0",
-    "private": true,
+    "private": false,
     "proxy": "http://localhost:3001",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
@@ -34,5 +34,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    }
+    },
+    "main": "index.js",
+    "repository": "https://github.com/brandjones/detainee.git",
+    "author": "<brand_jones@yahoo.com>",
+    "license": "MIT"
 }
