@@ -1,4 +1,4 @@
 
 
 
-web: yarn build
+web: node ./server app.js
