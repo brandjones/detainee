@@ -4,7 +4,34 @@ import "./App.css";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from "axios";
 
-const ENVIRONMENT = process.env.NODE_ENV === "production" ? window.location.host : "http://localhost:3000";
+export const Disclaimer = () => {
+    return (
+        <div>
+            <p>
+                The information on this web site is provided to assist users in obtaining information about county jail
+                arrests. Any use of this data for any other purpose may be illegal. While the information on this
+                website is believed by the website owner to be reliable, it is provided "as is" with no warranties or
+                guarantees regarding its accuracy. An arrest or booking does not mean that the individual has been
+                convicted or is guilty of the crime. You are advised to contact the appropriate governmental agency to
+                ascertain and verify the information contained on this website. By using this web site, you agree to
+                these terms of usage without warranty.
+            </p>
+
+            <section>
+                <h1 className="title"> Information Sharing & Disclosures </h1> <br />
+                We recommend that you guard your anonymity and sensitive information and we encourage users to think
+                carefully about what information about themselves they disclose in their profile pages, should one be
+                available. Jail Search cooperates with government and law enforcement officials and private parties to
+                enforce and comply with the law. We will disclose any information about you to government or law
+                enforcement officials or private parties as we, in our sole discretion, believe necessary or appropriate
+                to respond to claims and legal process (including but not limited to subpoenas), to protect the property
+                and rights of Jail Search or a third party, to protect the safety of the public or any person, or to
+                prevent or stop any activity we may consider to be, or to pose a risk of being, illegal, unethical,
+                inappropriate or legally actionable.
+            </section>
+        </div>
+    );
+};
 
 function SearchBox({ fetchInmate, route }) {
     const [firstName, setFirstName] = useState("");
@@ -17,7 +44,7 @@ function SearchBox({ fetchInmate, route }) {
     };
     return (
         <div className="row">
-            <div className="col s6 offset-s3">
+            <div className="col s8 offset-s2">
                 <input
                     value={firstName}
                     onChange={e => {
@@ -27,7 +54,7 @@ function SearchBox({ fetchInmate, route }) {
                     placeholder="first name"
                 />
             </div>
-            <div className="col s6 offset-s3">
+            <div className="col s8 offset-s2">
                 <input
                     onChange={e => setLastName(e.target.value)}
                     value={lastName}
@@ -45,6 +72,75 @@ function SearchBox({ fetchInmate, route }) {
     );
 }
 
+export const InnocentDisclaimer = () => {
+    return (
+        <section>
+            "Individuals are innocent until proven guilty in a court of law. Data is believed to be reliable but is
+            provided "as is". Contact the appropriate governmental agency to verify."
+        </section>
+    );
+};
+
+export const JailBaseIndentifier = () => {
+    return (
+        <section>
+            <a href="https://www.jailbase.com"> Data provided by Jail Base.com </a>
+        </section>
+    );
+};
+
+export const PrivacyPolicy = () => {
+    return (
+        <div>
+            <section>
+                Jail Search provides this Privacy Policy to inform you of our policies and procedures regarding the
+                collection, use and disclosure of personal information we receive from users of Jail Search.com (this
+                “Site”). This Privacy Policy applies only to information that is received from Jail Base.com. Our
+                Privacy Policy may be updated from time to time, and we will notify you of any material changes by
+                posting the new Privacy Policy on the site.
+            </section>
+            <section>
+                <h1 className="title"> Information Collection</h1> <br />
+                When you visit the Site, our servers automatically record information that your browser sends whenever
+                you visit a website. This information may include, but is not limited to, your computer’s Internet
+                Protocol address, browser type, the web page you were visiting before you came to our Site and
+                information you search for on our Site. Like many websites, we also use “cookies” to collect
+                information. A cookie is a small data file that we transfer to your computer’s hard disk for
+                record-keeping purposes. We use “persistent cookies” to save your registration ID and login password for
+                future logins to the Site; and we use “session ID cookies” to enable certain features of the Site, to
+                better understand how you interact with the Site and to monitor aggregate usage and web traffic routing
+                on the Site. You can instruct your browser, by changing its options, to stop accepting cookies or to
+                prompt you before accepting a cookie from the websites you visit. If you do not accept cookies, however,
+                you may not be able to use all portions of the Site or all functionality of our services.
+            </section>
+            <section>
+                <h1 className="title"> Use of Personal Information </h1> <br />
+                Personal Information is used for the following purposes: (1) to provide and improve our Site, services,
+                features and content, (2) to administer your membership (if offered) and your use of our Site, (3) to
+                enable users to enjoy and easily navigate the Site, (4) to better understand your needs and interests,
+                (5) to fulfill requests you may make, (6) to personalize your experience, (7) to provide or offer
+                software updates and product announcements, and (8) to provide you with further information and offers
+                from us or third parties that we believe you may find useful or interesting, including newsletters,
+                marketing or promotional materials and other information on services and products offered by us or third
+                parties. If you decide at any time that you no longer wish to receive such communications, please follow
+                the unsubscribe instructions provided in any of the communications or update your “user preferences”
+                information (if personal information is required). We use information we obtain by technical means (such
+                as the automatic recording performed by our servers or through the use of cookies) for the above
+                purposes and in order to monitor and analyze use of the Site and our services and for the Site’s
+                technical administration, to increase our Site’s functionality and user-friendliness, to better tailor
+                it to your needs, to generate and derive useful data and information concerning the interests,
+                characteristics and website use behavior of our users, and to verify that visitors to the Site meet the
+                criteria required to process their requests.
+            </section>
+
+            <section>
+                <h1 className="title"> Contacting Us </h1> <br />
+                If you have any questions about this Privacy Policy, please contact us at info@jailsearch.org.
+            </section>
+        </div>
+    );
+};
+
 function SearchResults({ record, setRecord, route }) {
     useEffect(() => {
         if (localStorage.getItem("record")) {
@@ -58,6 +154,7 @@ function SearchResults({ record, setRecord, route }) {
 
     useEffect(() => {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
+        console.dir(window.location);
     }, []);
     return (
         <div className="row">
@@ -127,28 +224,28 @@ function Title(props) {
 
 function Footer(props) {
     return (
-        <footer className="Footer">
-            <div className="container">
-                <div className="row">
-                    <div className="col s6">
-                        <h5 className="white-text">Footer Content</h5>
-                    </div>
-                    <div className="col s6">
-                        <h5 className="white-text">Footer Content</h5>
-                    </div>
+        <footer>
+            <div className="row">
+                <div className="col 6">
+                    <Link to="/terms"> Terms </Link>
+                </div>
+                <div className=" col 6">
+                    <Link to="/privacy"> Privacy </Link>
                 </div>
             </div>
         </footer>
     );
 }
 
-function FBCommentPlugin(props) {
+function FBCommentPlugin({ route }) {
     return (
         <div
             className="fb-comments"
             data-colorscheme="dark"
-            data-href={`${ENVIRONMENT}/search`}
-            data-width=""
+            data-href={`${
+                process.env.NODE_ENV !== "production" ? "http://localhost:3000/search" : route.location.pathname
+            }`}
+            data-width="100"
             data-numposts="5"
             data-mobile={true}
             data-orderby="time"
@@ -169,6 +266,13 @@ function App() {
 
         if (data.message) {
             return alert(data.message);
+        }
+
+        if (data.record.length === 0) {
+            alert("No record exists");
+            inmate.setFirstName("");
+            inmate.setLastName("");
+            return;
         }
 
         const record = data.record[0];
@@ -219,7 +323,39 @@ function App() {
                                             location
                                         }}
                                     />
-                                    <FBCommentPlugin />
+                                    <InnocentDisclaimer />
+                                    <JailBaseIndentifier />
+                                    <FBCommentPlugin
+                                        route={{
+                                            match,
+                                            history,
+                                            location
+                                        }}
+                                    />
+
+                                    <Footer />
+                                </React.Fragment>
+                            );
+                        }
+
+                        if (location.pathname === "/privacy") {
+                            return (
+                                <React.Fragment>
+                                    <Header />
+                                    <Title message="Privacy Policy" />
+                                    <PrivacyPolicy />
+                                    <Footer />
+                                </React.Fragment>
+                            );
+                        }
+
+                        if (location.pathname === "/terms") {
+                            return (
+                                <React.Fragment>
+                                    <Header />
+                                    <Title message="Terms and Conditions" />
+                                    <Disclaimer />
+                                    <Footer />
                                 </React.Fragment>
                             );
                         }

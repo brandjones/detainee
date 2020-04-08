@@ -5,6 +5,8 @@
 body { 
 
   overflow-x: hidden; 
+  margin-bottom: 100px;
+
 
 }
   /* .flex { 
@@ -70,7 +72,22 @@ body {
   height: 100px; 
   margin: 5px 0; 
 }
-.Footer { 
-    position: fixed; 
-    height: 100px; 
+
+
+footer { 
+  align-content: center;
+  align-items: center; 
+  height: 200px; 
+  position: fixed;
+  height: 100px;
+  background-color: #15340b; 
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  display: flex; 
+}
+
+footer a { 
+  color: #fff; 
 }
