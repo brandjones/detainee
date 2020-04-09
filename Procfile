@@ -1,4 +1,4 @@
 
 
 
-web: node ./server app.js
+web: node ./server yarn prod-cuild

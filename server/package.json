@@ -8,8 +8,10 @@
     "main": "app.js",
     "scripts": {
         "client": "cd ../src && yarn start",
+        "client-build": "cd ../src && yarn build",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-        "server": "nodemon app.js"
+        "server": "nodemon app.js",
+        "prod-build": "yarn client && node app.js "
     },
     "author": "",
     "license": "ISC",
