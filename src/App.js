@@ -157,18 +157,24 @@ function SearchResults({ record, setRecord, route }) {
     }, []);
 
     useEffect(() => {
+        if (window.FB) {
+            const FB = window.FB;
+            FB.XFBML.parse();
+        }
+    });
+
+    useEffect(() => {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
-        console.dir(window.location);
     }, []);
     return (
         <div className="row">
             <div className="col s12">
                 <div className="ad">
                     <ins
-                        className="adsbygoogle"
+                        class="adsbygoogle"
                         style={{ display: "block" }}
                         data-ad-client="ca-pub-5898569749563519"
-                        data-ad-slot="1187826533"
+                        data-ad-slot="8624602773"
                         data-ad-format="auto"
                         data-full-width-responsive="true"
                     />
@@ -202,16 +208,13 @@ function SearchResults({ record, setRecord, route }) {
                 </div>
                 <div className="ad">
                     <ins
-                        className="adsbygoogle"
+                        class="adsbygoogle"
                         style={{ display: "block" }}
                         data-ad-client="ca-pub-5898569749563519"
-                        data-ad-slot="1187826533"
+                        data-ad-slot="8624602773"
                         data-ad-format="auto"
                         data-full-width-responsive="true"
                     />
-                </div>
-                <div id="fb-root">
-                    <FBCommentPlugin route={route} />
                 </div>
             </div>
         </div>
@@ -245,7 +248,6 @@ function Footer(props) {
 }
 
 function FBCommentPlugin({ route }) {
-    console.dir(window.location.origin);
     return (
         <div
             className="fb-comments"
@@ -323,6 +325,13 @@ function App() {
                                     <SearchResults
                                         record={record}
                                         setRecord={setRecord}
+                                        route={{
+                                            match,
+                                            history,
+                                            location
+                                        }}
+                                    />
+                                    <FBCommentPlugin
                                         route={{
                                             match,
                                             history,
