@@ -6,7 +6,7 @@ import axios from "axios";
 
 export const Disclaimer = () => {
     return (
-        <div>
+        <div className="container">
             <p>
                 The information on this web site is provided to assist users in obtaining information about county jail
                 arrests. Any use of this data for any other purpose may be illegal. While the information on this
@@ -16,9 +16,8 @@ export const Disclaimer = () => {
                 ascertain and verify the information contained on this website. By using this web site, you agree to
                 these terms of usage without warranty.
             </p>
-
-            <section>
-                <h1 className="title"> Information Sharing & Disclosures </h1> <br />
+            <section className="padding">
+                <h3 className="title"> Information Sharing & Disclosures </h3> <br />
                 We recommend that you guard your anonymity and sensitive information and we encourage users to think
                 carefully about what information about themselves they disclose in their profile pages, should one be
                 available. Jail Search cooperates with government and law enforcement officials and private parties to
@@ -28,7 +27,8 @@ export const Disclaimer = () => {
                 and rights of Jail Search or a third party, to protect the safety of the public or any person, or to
                 prevent or stop any activity we may consider to be, or to pose a risk of being, illegal, unethical,
                 inappropriate or legally actionable.
-            </section>
+            </section>{" "}
+            <br />
         </div>
     );
 };
@@ -74,7 +74,7 @@ function SearchBox({ fetchInmate, route }) {
 
 export const InnocentDisclaimer = () => {
     return (
-        <section>
+        <section className="container">
             "Individuals are innocent until proven guilty in a court of law. Data is believed to be reliable but is
             provided "as is". Contact the appropriate governmental agency to verify."
         </section>
@@ -83,24 +83,28 @@ export const InnocentDisclaimer = () => {
 
 export const JailBaseIndentifier = () => {
     return (
-        <section>
-            <a href="https://www.jailbase.com"> Data provided by Jail Base.com </a>
-        </section>
+        <div>
+            <section className="container">
+                <a href="https://www.jailbase.com"> Data provided by Jail Base.com </a>
+            </section>{" "}
+            <br />
+        </div>
     );
 };
 
 export const PrivacyPolicy = () => {
     return (
         <div>
-            <section>
+            <section className="container">
                 Jail Search provides this Privacy Policy to inform you of our policies and procedures regarding the
                 collection, use and disclosure of personal information we receive from users of Jail Search.com (this
                 “Site”). This Privacy Policy applies only to information that is received from Jail Base.com. Our
                 Privacy Policy may be updated from time to time, and we will notify you of any material changes by
                 posting the new Privacy Policy on the site.
-            </section>
-            <section>
-                <h1 className="title"> Information Collection</h1> <br />
+            </section>{" "}
+            <br />
+            <section className="container">
+                <h3 className="title"> Information Collection</h3> <br />
                 When you visit the Site, our servers automatically record information that your browser sends whenever
                 you visit a website. This information may include, but is not limited to, your computer’s Internet
                 Protocol address, browser type, the web page you were visiting before you came to our Site and
@@ -113,8 +117,8 @@ export const PrivacyPolicy = () => {
                 prompt you before accepting a cookie from the websites you visit. If you do not accept cookies, however,
                 you may not be able to use all portions of the Site or all functionality of our services.
             </section>
-            <section>
-                <h1 className="title"> Use of Personal Information </h1> <br />
+            <section className="container">
+                <h3 className="title"> Use of Personal Information </h3> <br />
                 Personal Information is used for the following purposes: (1) to provide and improve our Site, services,
                 features and content, (2) to administer your membership (if offered) and your use of our Site, (3) to
                 enable users to enjoy and easily navigate the Site, (4) to better understand your needs and interests,
@@ -132,11 +136,11 @@ export const PrivacyPolicy = () => {
                 characteristics and website use behavior of our users, and to verify that visitors to the Site meet the
                 criteria required to process their requests.
             </section>
-
-            <section>
-                <h1 className="title"> Contacting Us </h1> <br />
+            <section className="container">
+                <h3 className="title"> Contacting Us </h3> <br />
                 If you have any questions about this Privacy Policy, please contact us at info@jailsearch.org.
-            </section>
+            </section>{" "}
+            <br />
         </div>
     );
 };
@@ -206,6 +210,9 @@ function SearchResults({ record, setRecord, route }) {
                         data-full-width-responsive="true"
                     />
                 </div>
+                <div id="fb-root">
+                    <FBCommentPlugin route={route} />
+                </div>
             </div>
         </div>
     );
@@ -238,13 +245,12 @@ function Footer(props) {
 }
 
 function FBCommentPlugin({ route }) {
+    console.dir(window.location.origin);
     return (
         <div
             className="fb-comments"
             data-colorscheme="dark"
-            data-href={`${
-                process.env.NODE_ENV !== "production" ? "http://localhost:3000/search" : route.location.pathname
-            }`}
+            data-href={window.location.href}
             data-width="100"
             data-numposts="5"
             data-mobile={true}
@@ -325,14 +331,6 @@ function App() {
                                     />
                                     <InnocentDisclaimer />
                                     <JailBaseIndentifier />
-                                    <FBCommentPlugin
-                                        route={{
-                                            match,
-                                            history,
-                                            location
-                                        }}
-                                    />
-
                                     <Footer />
                                 </React.Fragment>
                             );
