@@ -1,19 +1,35 @@
 
 
 
-
+html { 
+  position: relative; 
+  min-height: 100%; 
+}
 body { 
 
   overflow-x: hidden; 
-  margin-bottom: 100px;
-
-
+  margin: 0 0 200px; 
 }
-  /* .flex { 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-  } */
+
+
+.content { 
+  min-height: 100%; 
+}
+.content-inside { 
+  padding: 20px; 
+  padding-bottom: 50px;  
+}
+
+.btn-wrapper { 
+  display: flex; 
+  justify-content: center; 
+}
+
+.search-box { 
+  width: 50%; 
+  margin: 0 auto; 
+}
+
 
 .App { 
   width: 100%; 
@@ -75,17 +91,14 @@ body {
 
 
 footer { 
-  align-content: center;
-  align-items: center; 
-  height: 200px; 
-  position: fixed;
-  height: 100px;
+
   background-color: #15340b; 
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
-  display: flex; 
+  display: flex;  
+  position: absolute; 
+  bottom: 0; 
+  overflow: hidden;
+  width: 100%; 
+  padding: 25px; 
 }
 
 footer a { 

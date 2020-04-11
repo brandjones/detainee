@@ -43,26 +43,22 @@ function SearchBox({ fetchInmate, route }) {
         setLastName
     };
     return (
-        <div className="row">
-            <div className="col s8 offset-s2">
-                <input
-                    value={firstName}
-                    onChange={e => {
-                        setFirstName(e.target.value);
-                    }}
-                    className="input-field"
-                    placeholder="first name"
-                />
-            </div>
-            <div className="col s8 offset-s2">
-                <input
-                    onChange={e => setLastName(e.target.value)}
-                    value={lastName}
-                    className="input-field"
-                    placeholder="last name"
-                />
-            </div>
-            <div onClick={event => fetchInmate(event, inmate, route)} className="col s6 offset-s4">
+        <div className="search-box">
+            <input
+                value={firstName}
+                onChange={e => {
+                    setFirstName(e.target.value);
+                }}
+                className="input-field"
+                placeholder="first name"
+            />
+            <input
+                onChange={e => setLastName(e.target.value)}
+                value={lastName}
+                className="input-field"
+                placeholder="last name"
+            />
+            <div onClick={event => fetchInmate(event, inmate, route)} className="btn-wrapper">
                 <Link to="#" className="btn input-field" placeholder=" name">
                     {" "}
                     Search Inmate
